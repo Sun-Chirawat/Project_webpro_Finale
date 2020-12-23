@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></script>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link href="../public/styles/stylepayment.css" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            
+
+        });
+    </script>
+</head>
+<body>
+    <!-- //Back -->
+    <div class="container-fluid ml-3 ">
+        <input type="button" class="btn btn-warning text-white" style="margin-top: 40px; padding-top: 12px;" value="Back">
+    </div>
+    
+    <div class="container mt-2">
+        <img src="../public/styles/images/logo_home_page.png" style="display: block; margin-left: auto; margin-right: auto; width: 80px;" alt="">
+    </div>
+    <!-- Payment -->
+    <div class="warpper">
+        <div class="payment">
+            <div class="payment-logo">
+                <p>p</p>
+            </div>
+
+            <h2>Payment Gateway</h2>
+
+            <div class="form">
+                <div class="card space icon-relative">
+                    <label class="label">Card holder</label>
+                    <input type="text" class="input" name="card_holder" placeholder="Coding Market">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="card space icon-relative">
+                    <label class="label">Card number</label>
+                    <input type="text" class="input" name="card_number" placeholder="Coding Number">
+                    <i class="far fa-credit-card"></i>
+                </div>
+                <div class="card-grp space">
+                    <div class="card-item icon-relative">
+                        <label class="label">Expiry date:</label>
+                        <input type="text" class="input" name="expiry_date" placeholder="00 / 00">
+                        <i class="far fa-calendar-alt"></i>
+                    </div>
+                    <div class="card-item icon-relative">
+                        <label class="label">CVC</label>
+                        <input type="text" class="input" name="cvc" placeholder="000">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                </div>
+                
+                <div class="btn" id="btnpayment">
+                    Pay
+                </div>
+
+            </div>
+        </div> 
+    </div>
+</body>
+</html>

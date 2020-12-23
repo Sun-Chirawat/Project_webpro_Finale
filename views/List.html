@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.6.1/sweetalert2.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+        integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.3/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+    <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.3.2/bootbox.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.3/js/responsive.bootstrap4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/10.6.1/sweetalert2.min.js"></script>
+    <link href="../public/styles/stylelist.css" rel="stylesheet">
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+    <!-- //navbar -->
+    <nav class="navbar navbar-expand-md navbar-light sticky-top mb-3">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span> 
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                        <img src="../public/styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
+                    <li class="nav-item active">
+                        <a class="nav-link ml-3" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Notification</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- login register -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <img src="./Image/logo_login.png" style="display: block; margin-left: auto; margin-right: auto; width: 80px;"
+            alt="">
+    </div>
+
+    <div class="container pt-3">
+
+        <h3 class="my-3">Deposit</h3>
+    </div>
+
+    <div class="container">
+        <table id="myTable" class="table-striped" style="width: 100%;">
+
+            <tr>
+                <div class="card text-white">
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="https://img.icons8.com/bubbles/100/000000/user.png" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="col-md-3">
+                            <p> The amount of fabric to be deposited <span>...</span></p>
+                            <p>Time period<span>...</span></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p>Total laundry price <span>...</span></p>
+                            <p>Deposit only gender<span>...</span></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Separate laundry price<span>...</span></p>
+                        </div>
+                        <div class="col-md-1 ">
+                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px; ">Deposit</button>
+                      </div>
+                    </div>
+                   </div>
+                </div>                                
+                </tr>
+        </table>
+
+        <table id="myTable" class="table-striped" style="width: 100%;">
+
+            <tr>
+                <div class="card text-white">
+                    <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <img src="https://img.icons8.com/bubbles/100/000000/user.png" style="width: 100px; height: 100px;" alt="">
+                        </div>
+                        <div class="col-md-3">
+                            <p> The amount of fabric to be deposited <span>...</span></p>
+                            <p>Time period<span>...</span></p>
+                        </div>
+                        <div class="col-md-3">
+                            <p>Total laundry price <span>...</span></p>
+                            <p>Deposit only gender<span>...</span></p>
+                        </div>
+                        <div class="col-md-2">
+                            <p>Separate laundry price<span>...</span></p>
+                        </div>
+                        <div class="col-md-1 ">
+                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px; ">Depositor</button>
+                      </div>
+                    </div>
+                   </div>
+                </div>                                
+                </tr>
+        </table>
+    </div>
+</body>
+
+</html>

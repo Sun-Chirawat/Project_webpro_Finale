@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.5.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_th.min.js"></script>
+    <link href="../public/styles/styleregister.css" rel="stylesheet">
+
+    <script>
+        $(document).ready(function () {
+            $("#btnsubmit").click(function () { 
+                $("form").validate({
+                    rules: {
+                        Cusername: {
+                            required: true,
+                            minlength: 12,
+                            maxlength: 20
+                        },
+                        Cphonenumber: {
+                            required: true,
+                            maxlength: 10,
+                            mobile: true
+                        },
+                        Cpassword: {
+                            required: true,
+                            minlength: 6,
+                            max: 20
+                        },
+                        CCpassword: {
+                            required: true,
+                            minlength: 6,
+                            max: 20,
+                            equalTo : "#password"
+                        }
+
+                    },
+                    errorClass: "errorMessange"
+                });
+                
+                jQuery.validator.addmethod("Cphonenumber",function(value, element){
+                    return this.optional(element) || /[0]{1}[0-9]{9}/.test(value);
+                }, "Please input PhoneNumber that begins with 0")
+            });
+        });
+    </script>
+</head>
+<body>
+    <!-- Navigation -->
+
+    <nav class="navbar navbar-expand-md navbar-light sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
+                <span class="navbar-toggler-icon"></span> Home
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav">
+                        <img src="../public/styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
+                    <li class="nav-item active ml-3">
+                        <a class="nav-link" href="">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Notification</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- login register -->
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-2">
+        <img src="../public/styles/images/logo_home_page.png" style="display: block; margin-left: auto; margin-right: auto; width: 80px;" alt="">
+    </div>
+
+    <!-- login -->
+    
+    <div class="rounded float-left ml-5">
+        <img src="../public/styles/images/logo_login.png" alt="">
+    </div>
+    
+    <div class="container" id="register">
+        <div class="login_form">
+            <h1>Sign in</h1>
+            <form method="POST" action="/register">
+                <input type="text" id="Cusername" placeholder="Username">
+                <input type="text" id="Cphonenumber" placeholder="Phone Number">
+                <input type="password" id="Cpassword" placeholder="Password">
+                <input type="password" id="CCpassword" placeholder="Confirm Password">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="femaleRadio" value="Female">Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="maleRadio" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="uncknownRadio" value="Unknown">Unknown
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Role</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="role" id="launderradio" value="Launder">Launder
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="role" id="depositorradio" value="Depositor">Depositor
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" id="btnsubmit" value="Submit">
+            </form>
+            
+    </div>
+     
+</div>
+<div class="rounded float-right mr-5">
+    <img src="../public/styles/images/logo_REG.png" alt="">
+</div>
+<script>
+    $()
+</script>
+</body>
+</html>
