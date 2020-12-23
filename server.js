@@ -17,6 +17,11 @@ app.use(express.urlencoded({ extended: true }));
 
  
 // ============= Page routes ==============
+app.get("/", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Homepage.html"));
+});
+
+
 app.get("/Loginpage", function (req, res) {
     res.sendFile(path.join(__dirname, "views/Loginpage.html"));
 });
@@ -24,6 +29,31 @@ app.get("/Loginpage", function (req, res) {
 app.get("/Registerpage", function (req, res) {
     res.sendFile(path.join(__dirname, "views/Registerpage.html"));
 });
+
+app.get("/Chooserolepage", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Chooserolepage.html"));
+});
+
+app.get("/Listpage", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/List.html"));
+});
+
+app.get("/Notificationpage", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Notificationpage.html"));
+});
+
+app.get("/Paymentapge", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Paymentpage.html"));
+});
+
+app.get("/Profilepage", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Profilepage.html"));
+});
+
+app.get("/adminpage", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Adminpage.html"));
+});
+
  
 
 

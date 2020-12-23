@@ -16,6 +16,12 @@
     <link href="styles/styleregister.css" rel="stylesheet">
     <script>
          $(document).ready(function(){
+
+            if (sessionStorage.user_id == undefined || sessionStorage.user_id == "undefined") {
+                    alert("You are not member yet, Please login first.");
+                    window.location.replace("/login");
+                }
+
             $("#btnsubmit").click(function(){
                 
                 var username = $("#txtUsername").val();
@@ -23,7 +29,7 @@
                 var cpassword = $("#txtConfirmPassword").val();
                 var Phonenumber = $("#txtPhoneNumber").val();
                 var gender = $("input[name='gender']:checked").val();
-                var role = $("input[name='role']:checked").val();
+                
 
 
                 ///----function Check input sing up----
@@ -38,7 +44,7 @@
                     $.ajax({
                         type: "POST",
                         url: "server.js",
-                        data: {username:"username",password:"password",Phonenumber:"Phonenumber",gender:"gender",role:"role"},
+                        data: {username:"username",password:"password",Phonenumber:"Phonenumber",gender:"gender"},
                         dataType: "dataType",
                         success: function (response) {
                             //jump to login
@@ -62,10 +68,10 @@
                 <ul class="navbar-nav">
                         <img src="styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
                     <li class="nav-item active ml-3">
-                        <a class="nav-link" href="">Home</a>
+                        <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Notification</a>
