@@ -31,7 +31,48 @@
     <link href="styles/stylenotification.css" rel="stylesheet">
 
     <script>
+        $(document).ready(function () {
+            
+            $("#btnAccept").click(function () { 
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#28a745',
+                    cancelButtonColor: '#dc3545',
+                    confirmButtonText: 'Yes, Accept it!'
+                        }).then((result) => {
+                    if (result.isConfirmed) {
+                    Swal.fire(
+                    'Accepted!',
+                    'Your post has been sented.',
+                    'success'
+                    )
+                }
+            });
+        });
 
+            $("#btnRefuse").click(function () { 
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#d33',
+                    cancelButtonColor: '#3085d6',
+                    confirmButtonText: 'Yes, Refuse it!'
+                        }).then((result) => {
+                    if (result.isConfirmed) {
+                    Swal.fire(
+                    'Refused!',
+                    'Your post has been Refused.',
+                    'success'
+                    )
+                }
+            });
+        });
+    }); 
     </script>
 </head>
 
@@ -108,8 +149,8 @@
                             <p>Separate laundry price<span>...</span></p>
                         </div>
                         <div class="col-md-3 ">
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Accept</button>
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Refuse</button>
+                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; " id="btnAccept">Accept</button>
+                            <button class="btn btn-danger btn-md text-white " style="margin-top: 20px; " id="btnRefuse">Refuse</button>
                       </div>
                     </div>
                    </div>
@@ -138,8 +179,8 @@
                             <p>Separate laundry price<span>...</span></p>
                         </div>
                         <div class="col-md-3 ">
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Accept</button>
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Refuse</button>
+                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; " id="btnAccept">Accept</button>
+                            <button class="btn btn-danger btn-md text-white " style="margin-top: 20px; " id="btnRefuse">Refuse</button>
                       </div>
                     </div>
                    </div>
@@ -168,8 +209,8 @@
                             <p>Separate laundry price<span>...</span></p>
                         </div>
                         <div class="col-md-3 ">
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Accept</button>
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Refuse</button>
+                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; " id="btnAccept">Accept</button>
+                            <button class="btn btn-danger btn-md text-white " style="margin-top: 20px; " id="btnRefuse">Refuse</button>
                       </div>
                     </div>
                    </div>
@@ -197,8 +238,8 @@
                             <p>Separate laundry price<span>...</span></p>
                         </div>
                         <div class="col-md-3 ">
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Accept</button>
-                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; ">Refuse</button>
+                            <button class="btn btn-warning btn-md text-white " style="margin-top: 20px; " id="btnAccept">Accept</button>
+                            <button class="btn btn-danger btn-md text-white " style="margin-top: 20px; " id="btnRefuse">Refuse</button>
                       </div>
                     </div>
                    </div>
