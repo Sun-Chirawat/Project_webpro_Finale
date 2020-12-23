@@ -54,6 +54,10 @@ app.get("/adminpage", function (req, res) {
     res.sendFile(path.join(__dirname, "views/Adminpage.html"));
 });
 
+app.get("/Formlaunder", function (req, res) {
+    res.sendFile(path.join(__dirname, "views/Formlaunder.html"));
+});
+
  
 
 
@@ -77,9 +81,15 @@ app.post("/login", function (req, res) {
             res.status(401).end("Wrong username or password");
         }
         else {
-            //correct login send destination URL to client
-            // only 1 row -> result[0]
-            res.send("/welcome");
+            if (same) {
+                
+                if (result[0].role == 1) {
+                    res.json({ url : "/admin", user_id});
+                } else {
+                    res.json({});
+                }           
+            
+            }
         }
     });
 });

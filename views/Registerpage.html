@@ -43,7 +43,7 @@
                     //connect to server regis
                     $.ajax({
                         type: "POST",
-                        url: "server.js",
+                        url: "/register",
                         data: {username:"username",password:"password",Phonenumber:"Phonenumber",gender:"gender"},
                         dataType: "dataType",
                         success: function (response) {
@@ -71,10 +71,10 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Profile</a>
+                        <a class="nav-link" href="/loginpage">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Notification</a>
+                        <a class="nav-link" href="">Notification</a>
                     </li>
                 </ul>
             </div>
@@ -83,10 +83,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="/Loginpage">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="/Registerpage">Register</a>
                     </li>
                 </ul>
             </div>
