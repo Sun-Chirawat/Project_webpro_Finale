@@ -13,6 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></script>
     <link href="../public/styles/styleprofile.css" rel="stylesheet">
 
+    <script>
+        $(document).ready(function () {
+            
+        });
+    </script>
 </head>
 <body>
     <!-- Navigation -->
@@ -82,6 +87,9 @@
                                             <h6 class="text-muted f-w-400">10/10</h6>
                                         </div>
                                     </div>
+                                    <div class="container">
+                                        <button class="btn btn-warning float-right" data-toggle="modal" data-target="#ProfileId">EDIT</button>
+                                    </div>
                                     <ul class="social-link list-unstyled m-t-40 m-b-10">
                                         <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="facebook" data-abc="true"><i class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
                                         <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="twitter" data-abc="true"><i class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
@@ -92,6 +100,42 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Modal Profile-->
+<div class="modal fade" id="ProfileId" tabindex="-1" role="dialog" aria-labelledby="ProfileId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Profile Post</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+            <div class="modal-body">
+              <form>
+                  <div class="form-group">
+                    <label class="col-form-label">Name-Surname:</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                      <label class="col-form-label">Phone:</label>
+                      <input type="text" class="form-control">
+                  </div>
+                  </form>
+                  <div class="form-group">
+                    <label class="col-form-label">Profile image</label>
+                    <form action="/uploading" method="POST" enctype="singlepart/form-data">
+                        <input type="file" name="fileupload">
+                        <input type="submit" class="btn btn-warning" value="Upload">
+                    </form>
+                  </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning">Post</button>
             </div>
         </div>
     </div>

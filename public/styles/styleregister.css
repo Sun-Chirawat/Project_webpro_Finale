@@ -29,7 +29,7 @@ html, body {
     color:#ffffff;
   }
 
-#login
+#register
 {
     position: absolute;
     top: 50%;
@@ -39,8 +39,8 @@ html, body {
     height: 350px;
 }
 
-#login .form_content,
-#login .login_form
+#register .form_content,
+#register .login_form
 {
     position: relative;
     width: 100%;
@@ -49,27 +49,27 @@ html, body {
     box-sizing: border-box;
 }
 
-#login .login_form
+#register .login_form
 {
     background: #fff;
-    height: 650px;
+    height: 550px;
     top: -50px;
     box-shadow: -20px 0 15px rgba(0,0,0,.2);
     padding: 30px; 
 }
 
-#login .form_content
+#register .form_content
 {
     padding: 40px 30px;
     color: #fff;
 }
 
-#login .login_form h1
+#register .login_form h1
 {
     color: #262626;
 }
 
-#login .login_form input
+#register .login_form input
 {
     display: block;
     width: 100%;
@@ -82,13 +82,13 @@ html, body {
     
 }
 
-#login .login_form input:hover
+#register .login_form input:hover
 {
     border: 2px solid rgba(230, 168, 76, 0.7);
 
 }
 
-#login .login_form input[type="submit"]
+#register .login_form input[type="submit"]
 {
     color: #fff;
     background:  rgba(230, 168, 76, 0.7);
@@ -96,13 +96,13 @@ html, body {
     transition: .5s;
 }
 
-#login .login_form input[type="submit"]:hover
+#register .login_form input[type="submit"]:hover
 {
     background: coral;
     border: 2px solid rgba(230, 168, 76, 0.7);
 }
 
-#login .login_form a
+#register .login_form a
 {
     text-decoration: none;
     font-weight: bold;
