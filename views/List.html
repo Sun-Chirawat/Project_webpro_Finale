@@ -99,7 +99,7 @@
                             <p>Separate laundry price<span>...</span></p>
                         </div>
                         <div class="col-md-1 ">
-                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px; ">Deposit</button>
+                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;" data-toggle="modal" data-target="#DepositId">Deposit</button>
                       </div>
                     </div>
                    </div>
@@ -128,13 +128,105 @@
                             <p>Separate laundry price<span>...</span></p>
                         </div>
                         <div class="col-md-1 ">
-                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px; ">Deposit</button>
+                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;" data-toggle="modal" data-target="#DepositId">Deposit</button>
                       </div>
                     </div>
                    </div>
                 </div>                                
                 </tr>
         </table>
+    </div>
+
+    <!-- Modal Deposit-->
+    <div class="modal fade" id="DepositId" tabindex="-1" role="dialog" aria-labelledby="DepositId" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Form Post</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                      <div class="form-group">
+                        <label class="col-form-label">The amount of Laundry to be deposited:</label>
+                        <input type="text" class="form-control">
+                      </div>
+                      <div class="radio-inline">
+                        <label class="col-form-label">Laundry type:</label>
+                        <input type="text" class="form-control">
+                        <div class="row">
+                          <div class="col-sm-4">
+                              <label class="radio-inline">
+                                  <input type="radio" name="laundry" id="TotalRadio" value="Total laundry price"> Total laundry price 
+                              </label>
+                          </div>
+                          <div class="col-sm-4">
+                              <label class="radio-inline" data-toggle="collapse" data-target="#type">
+                                  <input type="radio" name="laundry" id="SepaRadio" value="Separate laundry price"> Separate laundry price 
+                              </label>
+                              <div id="type" class="collapse">
+                                <div class="container-fluid padding">
+                                    <div class="row text-center">
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="5Radio" value="5 kilo "> 5 kilo 
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="10Radio" value="10 kilo "> 10 kilo 
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="15Radio" value="15 kilo "> 15 kilo 
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="20Radio" value="20 kilo "> 20 kilo 
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+                  </div>
+                      <div class="form-group">
+                          <label class="col-form-label">Time period:</label>
+                          <input type="text" class="form-control">
+                      </div>
+                      <div class="radio-inline">
+                          <label class="col-form-label">Deposit only gender:</label>
+                          <div class="row">
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="femaleRadio" value="Female"> Female
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="maleRadio" value="Male"> Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="gender" id="uncknownRadio" value="Unknown"> Unknown
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-warning">Post</button>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

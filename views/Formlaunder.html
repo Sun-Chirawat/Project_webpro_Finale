@@ -172,17 +172,55 @@
                 <div class="modal-body">
                   <form>
                       <div class="form-group">
-                        <label class="col-form-label">The amount of fabric to be deposited:</label>
+                        <label class="col-form-label">The amount of Laundry to be deposited:</label>
                         <input type="text" class="form-control">
                       </div>
                       <div class="form-group">
                           <label class="col-form-label">Total laundry price:</label>
                           <input type="text" class="form-control">
                       </div>
-                      <div class="form-group">
-                          <label class="col-form-label">Separate laundry price:</label>
-                          <input type="text" class="form-control">
+                      <div class="radio-inline">
+                        <label class="col-form-label">Laundry type:</label>
+                        <input type="text" class="form-control">
+                        <div class="row">
+                          <div class="col-sm-4">
+                              <label class="radio-inline">
+                                  <input type="radio" name="laundry" id="TotalRadio" value="Total laundry price"> Total laundry price 
+                              </label>
+                          </div>
+                          <div class="col-sm-4">
+                              <label class="radio-inline" data-toggle="collapse" data-target="#type">
+                                  <input type="radio" name="laundry" id="SepaRadio" value="Separate laundry price"> Separate laundry price 
+                              </label>
+                              <div id="type" class="collapse">
+                                <div class="container-fluid padding">
+                                    <div class="row text-center">
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="5Radio" value="5 kilo "> 5 kilo 
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="10Radio" value="10 kilo "> 10 kilo 
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="15Radio" value="15 kilo "> 15 kilo 
+                                            </label>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label class="radio-inline">
+                                                <input type="radio" name="kilo" id="20Radio" value="20 kilo "> 20 kilo 
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
                       </div>
+                  </div>
                       <div class="form-group">
                           <label class="col-form-label">Time period:</label>
                           <input type="text" class="form-control">
