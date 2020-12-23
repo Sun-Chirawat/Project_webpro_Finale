@@ -16,8 +16,28 @@
 
     <script>
         $(document).ready(function () {
-            
+            $("form").submit(function (e) {
+                // prevent form to submit immediately, otherwise the code after this line will be bypassed
+                e.preventDefault();
 
+                //get inputs
+                const user = $("#txtUsername").val();
+                const pass = $("#txtPassword").val();
+ 
+                //verify
+                $.ajax({
+                    method: "POST",
+                    url: "/login",
+                    data: { username: user, password: pass }
+                }).done(function (data, state, xhr) {
+                    //correct login
+                    window.location.replace(data);
+                }).fail(function (xhr, state) {
+                    $("#alertMessage").text(xhr.responseText);
+                    //wrong login
+                    $(".alert").show().fadeOut(3000);
+                });
+            });
         });
     </script>
 </head>
