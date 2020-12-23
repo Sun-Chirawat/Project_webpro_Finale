@@ -13,42 +13,39 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_th.min.js"></script>
-    <link href="../public/styles/styleregister.css" rel="stylesheet">
-
+    <link href="styles/styleregister.css" rel="stylesheet">
     <script>
-        $(document).ready(function () {
-            $("#btnsubmit").click(function () { 
-                $("form").validate({
-                    rules: {
-                        Cusername: {
-                            required: true,
-                            minlength: 12,
-                            maxlength: 20
-                        },
-                        Cphonenumber: {
-                            required: true,
-                            maxlength: 10,
-                            mobile: true
-                        },
-                        Cpassword: {
-                            required: true,
-                            minlength: 6,
-                            max: 20
-                        },
-                        CCpassword: {
-                            required: true,
-                            minlength: 6,
-                            max: 20,
-                            equalTo : "#password"
-                        }
-
-                    },
-                    errorClass: "errorMessange"
-                });
+         $(document).ready(function(){
+            $("#btnsubmit").click(function(){
                 
-                jQuery.validator.addmethod("Cphonenumber",function(value, element){
-                    return this.optional(element) || /[0]{1}[0-9]{9}/.test(value);
-                }, "Please input PhoneNumber that begins with 0")
+                var username = $("#txtUsername").val();
+                var password = $("#txtPassword").val();   
+                var cpassword = $("#txtConfirmPassword").val();
+                var Phonenumber = $("#txtPhoneNumber").val();
+                var gender = $("input[name='gender']:checked").val();
+                var role = $("input[name='role']:checked").val();
+
+
+                ///----function Check input sing up----
+                if (username == '' || Phonenumber == '' || password == '' || cpassword == '') {
+                    alert("Please fill all fields!!!");
+                }else if ((password.length) < 8) {
+                    alert("Password should atleast 8 character in length!!");
+                }else if(!(password).match(cpassword)) {
+                    alert("Your passwords don't match. Try again?");
+                }else{
+                    //connect to server regis
+                    $.ajax({
+                        type: "POST",
+                        url: "server.js",
+                        data: {username:"username",password:"password",Phonenumber:"Phonenumber",gender:"gender",role:"role"},
+                        dataType: "dataType",
+                        success: function (response) {
+                            //jump to login
+                        location.replace(response);
+                        }
+                    });
+                }
             });
         });
     </script>
@@ -63,7 +60,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                        <img src="../public/styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
+                        <img src="styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
                     <li class="nav-item active ml-3">
                         <a class="nav-link" href="">Home</a>
                     </li>
@@ -90,23 +87,23 @@
         </div>
     </nav>
     <div class="container mt-2">
-        <img src="../public/styles/images/logo_home_page.png" style="display: block; margin-left: auto; margin-right: auto; width: 80px;" alt="">
+        <img src="styles/images/logo_home_page.png" style="display: block; margin-left: auto; margin-right: auto; width: 80px;" alt="">
     </div>
 
     <!-- login -->
     
     <div class="rounded float-left ml-5">
-        <img src="../public/styles/images/logo_login.png" alt="">
+        <img src="styles/images/logo_login.png" alt="">
     </div>
     
     <div class="container" id="register">
         <div class="login_form">
             <h1>Sign in</h1>
             <form method="POST" action="/register">
-                <input type="text" id="Cusername" placeholder="Username">
-                <input type="text" id="Cphonenumber" placeholder="Phone Number">
-                <input type="password" id="Cpassword" placeholder="Password">
-                <input type="password" id="CCpassword" placeholder="Confirm Password">
+                <input type="text" id="txtUsername" placeholder="Username">
+                <input type="int" id="txtPhoneNumber" placeholder="PhoneNumber">
+                <input type="password" id="txtPassword" placeholder="Password">
+                <input type="password" id="txtConfirmPassword" placeholder="Confirm Password"> 
                 <div class="form-group">
                     <label class="control-label col-sm-3">Gender</label>
                     <div class="col-sm-6">
@@ -153,10 +150,7 @@
      
 </div>
 <div class="rounded float-right mr-5">
-    <img src="../public/styles/images/logo_REG.png" alt="">
+    <img src="styles/images/logo_REG.png" alt="">
 </div>
-<script>
-    $()
-</script>
 </body>
 </html>
