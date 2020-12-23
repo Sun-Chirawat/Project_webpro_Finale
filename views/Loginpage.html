@@ -12,12 +12,32 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paginationjs/2.1.5/pagination.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.min.js"></script>
-    <link href="../public/styles/stylelogin.css" rel="stylesheet">
+    <link href="styles/stylelogin.css" rel="stylesheet">
 
     <script>
         $(document).ready(function () {
-            
+            $("#btnlogin").click(function (e) {
+                // prevent form to submit immediately, otherwise the code after this line will be bypassed
+                e.preventDefault();
 
+                //get inputs
+                const user = $("#txtUsername").val();
+                const pass = $("#txtPassword").val();
+ 
+                //verify
+                $.ajax({
+                    method: "POST",
+                    url: "/login",
+                    data: { username: user, password: pass }
+                }).done(function (data) {
+                    //correct login
+                    window.location.replace(data);
+                }).fail(function (xhr, state) {
+                    $("#alertMessage").text(xhr.responseText);
+                    //wrong login
+                    $("")
+                });
+            });
         });
     </script>
 </head>
@@ -31,16 +51,14 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                        <img src="../public/styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
+                        <img src="styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
                     <li class="nav-item active">
                         <a class="nav-link ml-3" href="">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Notification</a>
-                    </li>
+                 
                 </ul>
             </div>
 
@@ -48,10 +66,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Login</a>
+                        <a class="nav-link" href="/Loginpage">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Register</a>
+                        <a class="nav-link" href="/Registerpage">Register</a>
                     </li>
                 </ul>
             </div>
@@ -63,14 +81,14 @@
     <div class="container" id="login">
         <div class="form_content">
             <h2>Welcomeback!</h2>
-            <img src="../public/styles/images/logo_home_page2.png" style="display: block; margin-left: auto; margin-right: auto; width: 150px;" alt="">    
+            <img src="styles/images/logo_home_page2.png" style="display: block; margin-left: auto; margin-right: auto; width: 150px;" alt="">    
         </div>
         <div class="login_form">
             <h1>Login</h1>
             <form>
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <input type="button" value="Login">
+                <input type="text" id="txtUsername" placeholder="Username">
+                <input type="password" id="txtPassword" placeholder="Password">
+                <input type="button" id="btnlogin" value="Login">
             </form>
             <a href="" class="ml-3">Register</a>
     </div>
