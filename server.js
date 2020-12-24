@@ -1,6 +1,12 @@
 const express = require("express");
 const path = require("path");
-const mysql = require("mysql");
+
+
+
+// ----- Mysql ------
+const mysql = require('mysql');
+const config = require('./dbConfig.js');
+const database = mysql.createConnection(config);
 
  
 const app = express();
@@ -99,8 +105,95 @@ app.post("/register",function(req,res){
     const username = req.body.username;
     const password = req.body.password; 
     const Phonenumber = req.body.Phonenumber;
+    const gender =req.body.gender;
+
+    //encrypt password
+    const saltRounds = 10;    //the cost of encrypting
+ 
+    bcrypt.hash(password, saltRounds, function(err, hash) {
+        if(err) {
+            console.error(err.message);
+            res.status(500).send("Server error");
+            return;
+        }
+        
+        //hash OK, do the rest here because of async hashing process!
+        // insert new user (role is 2)
+        const sql = "INSERT INTO user(username, password, , gender , Phone, role) VALUES(?,?,?,?,2)";
+        con.query(sql, [username, hash], function (err, result, fields) {
+            if (err) {
+                console.error(err.message);
+                res.status(500).send("Database server error");
+                return;
+            }           
+            
+            // get inserted rows
+            const numrows = result.affectedRows;
+            if(numrows != 1) {
+                console.error("Insert to DB failed");                
+                res.status(500).send("Database server error");
+            }
+            else {
+                res.send("Sign up Complete!");
+            }
+        });
+    });
 });
-    
+
+// ======= Password gen =======
+app.get("/password/:raw", (req, res) => {
+    const raw = req.params.raw;
+    bcrypt.hash(raw, 10, function(err, hash) {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Hashing password error.");
+            
+        } else {
+            res.send(hash);
+            console.log("Password length: ", hash.length);
+        }
+ 
+    });
+});
+
+
+
+//=====Post Form============
+app.get("/form",function(req,res){
+
+    const sql = "SELECT* FROM form"
+    con.query(sql ,function(err,result){
+        if(err){
+        console.log(err);
+        res.status(500).end("Server error");
+        }
+        else{
+            res.json(result)
+        }
+    });
+});    
+
+//==========Create form===============
+app.post("/Create", function(req,res){
+
+    const fabric = req.body.fabric;
+    const sumprice = req.body.sumPrice;
+    const separateprice = req.body.separateprice;
+    const time = req.body.time; 
+    const gender = req.body.onlygender;
+
+    const sql = "INSERT INTo form(fabric, sumPrice, separatePrice, time, onlygender) VALUES(?,?,?,?,?)"
+    con.query(sql ,function(err,result){
+        if(err){
+        console.log(err);
+        res.status(500).end("Server error");
+        }
+        else{
+            res.json(result)
+        }
+    });
+
+});
 
 
 
