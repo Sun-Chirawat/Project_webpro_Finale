@@ -31,16 +31,16 @@
     <link href="styles/stylelist.css" rel="stylesheet">
 
     <script>
-         var form =""; 
+        var form = "";
 
-$(document).ready(function () {
-   
-    function template(data){
-    let myhtml = '';
-    for(i in data){
-        // myhtml = myhtml + '<p>'+data[i].name+' '+data[i].price+'</p>';
-        // myhtml += `<p>${data[i].name} ${data[i].price} bath</p>`;
-        myhtml += `<div class="container"> 
+        $(document).ready(function () {
+
+            function template(data) {
+                let myhtml = '';
+                for (i in data) {
+                    // myhtml = myhtml + '<p>'+data[i].name+' '+data[i].price+'</p>';
+                    // myhtml += `<p>${data[i].name} ${data[i].price} bath</p>`;
+                    myhtml += `<div class="container"> 
         <div class="card text-white">
             <div class="card-body">
                 <div class="row">
@@ -49,15 +49,40 @@ $(document).ready(function () {
                             style="width: 100px; height: 100px;" alt="">
                     </div>
                     <div class="col-md-3">
-                        <p> The amount of fabric to be deposited <span>${data[i].fabric}</span></p>
-                        <p>Time period<span>${data[i].time}</span></p>
+                        <p> The amount of fabric to be deposited <span> 15 </span></p>
+                        <p>Time period<span> 16:00 </span></p>
                     </div>
                     <div class="col-md-3">
-                        <p>Total laundry price <span>${data[i].sumPrice}</span></p>
-                        <p>Deposit only gender<span>${data[i].onlygender}</span></p>
+                        <p>Total laundry price <span> 45 </span></p>
+                        <p>Deposit only gender<span> male </span></p>
                     </div>
                     <div class="col-md-2">
-                        <p>Separate laundry price<span>${data[i].separatePrice}</span></p>
+                        <p>Separate laundry price<span> 80 </span></p>
+                    </div>
+                    <div class="col-md-1 ">
+                        <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;"
+                            data-toggle="modal" data-target="#DepositId">Deposit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card text-white">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                            style="width: 100px; height: 100px;" alt="">
+                    </div>
+                    <div class="col-md-3">
+                        <p> The amount of fabric to be deposited <span> 15 </span></p>
+                        <p>Time period<span> 16:00 </span></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Total laundry price <span> 45 </span></p>
+                        <p>Deposit only gender<span> male </span></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>Separate laundry price<span> 80 </span></p>
                     </div>
                     <div class="col-md-1 ">
                         <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;"
@@ -67,23 +92,23 @@ $(document).ready(function () {
             </div>
         </div>
         </div>`;
-}
-return myhtml;
+                }
+                return myhtml;
 
-$.ajax({
-type: "GET",
-url: "/form",
-async: false,
-dataType: "dataType",
-success: function (response) {
-    form = [...response];     
-     console.log(form);
-}       
-}); 
-$("#Form").html(template(form));
+                $.ajax({
+                    type: "GET",
+                    url: "/form",
+                    async: false,
+                    dataType: "dataType",
+                    success: function (response) {
+                        form = [...response];
+                        console.log(form);
+                    }
+                });
+                $("#Form").html(template(form));
 
-}         
-});
+            }
+        });
     </script>
 </head>
 
@@ -92,11 +117,12 @@ $("#Form").html(template(form));
     <nav class="navbar navbar-expand-md navbar-light sticky-top mb-3">
         <div class="container-fluid">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
-                <span class="navbar-toggler-icon"></span> 
+                <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav">
-                        <img src="=styles/images/logo_homepage1.png" style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
+                    <img src="=styles/images/logo_homepage1.png"
+                        style="display: block; margin-left: auto; margin-right: auto; width: 100px;" alt="">
                     <li class="nav-item active">
                         <a class="nav-link ml-3" href="/Listpage">Home</a>
                     </li>
@@ -120,8 +146,8 @@ $("#Form").html(template(form));
         </div>
     </nav>
     <div class="container">
-        <img src="styles/image/logo_login.png" style="display: block; margin-left: auto; margin-right: auto; width: 80px;"
-            alt="">
+        <img src="styles/image/logo_login.png"
+            style="display: block; margin-left: auto; margin-right: auto; width: 80px;" alt="">
     </div>
 
     <div class="container pt-3">
@@ -135,28 +161,30 @@ $("#Form").html(template(form));
             <tr>
                 <div class="card text-white">
                     <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="https://img.icons8.com/bubbles/100/000000/user.png" style="width: 100px; height: 100px;" alt="">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                    style="width: 100px; height: 100px;" alt="">
+                            </div>
+                            <div class="col-md-3">
+                                <p> The amount of fabric to be deposited <span>...</span></p>
+                                <p>Time period<span>...</span></p>
+                            </div>
+                            <div class="col-md-3">
+                                <p>Total laundry price <span>...</span></p>
+                                <p>Deposit only gender<span>...</span></p>
+                            </div>
+                            <div class="col-md-2">
+                                <p>Separate laundry price<span>...</span></p>
+                            </div>
+                            <div class="col-md-1 ">
+                                <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;"
+                                    data-toggle="modal" data-target="#DepositId">Deposit</button>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <p> The amount of fabric to be deposited <span>...</span></p>
-                            <p>Time period<span>...</span></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p>Total laundry price <span>...</span></p>
-                            <p>Deposit only gender<span>...</span></p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>Separate laundry price<span>...</span></p>
-                        </div>
-                        <div class="col-md-1 ">
-                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;" data-toggle="modal" data-target="#DepositId">Deposit</button>
-                      </div>
                     </div>
-                   </div>
-                </div>                                
-                </tr>
+                </div>
+            </tr>
         </table>
 
         <table id="myTable" class="table-striped" style="width: 100%;">
@@ -164,28 +192,30 @@ $("#Form").html(template(form));
             <tr>
                 <div class="card text-white">
                     <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-2">
-                            <img src="https://img.icons8.com/bubbles/100/000000/user.png" style="width: 100px; height: 100px;" alt="">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                    style="width: 100px; height: 100px;" alt="">
+                            </div>
+                            <div class="col-md-3">
+                                <p> The amount of fabric to be deposited <span>...</span></p>
+                                <p>Time period<span>...</span></p>
+                            </div>
+                            <div class="col-md-3">
+                                <p>Total laundry price <span>...</span></p>
+                                <p>Deposit only gender<span>...</span></p>
+                            </div>
+                            <div class="col-md-2">
+                                <p>Separate laundry price<span>...</span></p>
+                            </div>
+                            <div class="col-md-1 ">
+                                <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;"
+                                    data-toggle="modal" data-target="#DepositId">Deposit</button>
+                            </div>
                         </div>
-                        <div class="col-md-3">
-                            <p> The amount of fabric to be deposited <span>...</span></p>
-                            <p>Time period<span>...</span></p>
-                        </div>
-                        <div class="col-md-3">
-                            <p>Total laundry price <span>...</span></p>
-                            <p>Deposit only gender<span>...</span></p>
-                        </div>
-                        <div class="col-md-2">
-                            <p>Separate laundry price<span>...</span></p>
-                        </div>
-                        <div class="col-md-1 ">
-                            <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;" data-toggle="modal" data-target="#DepositId">Deposit</button>
-                      </div>
                     </div>
-                   </div>
-                </div>                                
-                </tr>
+                </div>
+            </tr>
         </table>
     </div>
 
@@ -195,86 +225,92 @@ $("#Form").html(template(form));
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">Form Send</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
                 </div>
                 <div class="modal-body">
-                  <form>
-                      <div class="form-group">
-                        <label class="col-form-label">The amount of Laundry to be deposited:</label>
-                        <input type="text" class="form-control">
-                      </div>
-                      <div class="radio-inline">
-                        <label class="col-form-label">Laundry type:</label>
-                        <input type="text" class="form-control">
-                        <div class="row">
-                          <div class="col-sm-4">
-                              <label class="radio-inline">
-                                  <input type="radio" name="laundry" id="TotalRadio" value="Total laundry price"> Total laundry price 
-                              </label>
-                          </div>
-                          <div class="col-sm-4">
-                              <label class="radio-inline" data-toggle="collapse" data-target="#type">
-                                  <input type="radio" name="laundry" id="SepaRadio" value="Separate laundry price"> Separate laundry price 
-                              </label>
-                              <div id="type" class="collapse">
-                                <div class="container-fluid padding">
-                                    <div class="row text-center">
-                                        <div class="col-sm-4">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="kilo" id="5Radio" value="5 kilo "> 5 kilo 
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="kilo" id="10Radio" value="10 kilo "> 10 kilo 
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="kilo" id="15Radio" value="15 kilo "> 15 kilo 
-                                            </label>
-                                        </div>
-                                        <div class="col-sm-4">
-                                            <label class="radio-inline">
-                                                <input type="radio" name="kilo" id="20Radio" value="20 kilo "> 20 kilo 
-                                            </label>
+                    <form>
+                        <div class="form-group">
+                            <label class="col-form-label">The amount of Laundry to be deposited:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="radio-inline">
+                            <label class="col-form-label">Laundry type:</label>
+                            <input type="text" class="form-control">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="laundry" id="TotalRadio" value="Total laundry price">
+                                        Total laundry price
+                                    </label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline" data-toggle="collapse" data-target="#type">
+                                        <input type="radio" name="laundry" id="SepaRadio"
+                                            value="Separate laundry price"> Separate laundry price
+                                    </label>
+                                    <div id="type" class="collapse">
+                                        <div class="container-fluid padding">
+                                            <div class="row text-center">
+                                                <div class="col-sm-4">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="kilo" id="5Radio" value="5 kilo "> 5
+                                                        kilo
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="kilo" id="10Radio" value="10 kilo ">
+                                                        10 kilo
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="kilo" id="15Radio" value="15 kilo ">
+                                                        15 kilo
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="kilo" id="20Radio" value="20 kilo ">
+                                                        20 kilo
+                                                    </label>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                          </div>
-                      </div>
-                  </div>
-                      <div class="form-group">
-                          <label class="col-form-label">Time period:</label>
-                          <input type="text" class="form-control">
-                      </div>
-                      <div class="radio-inline">
-                          <label class="col-form-label">Deposit only gender:</label>
-                          <div class="row">
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" id="femaleRadio" value="Female"> Female
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" id="maleRadio" value="Male"> Male
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" name="gender" id="uncknownRadio" value="Unknown"> Unknown
-                                </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Time period:</label>
+                            <input type="text" class="form-control">
+                        </div>
+                        <div class="radio-inline">
+                            <label class="col-form-label">Deposit only gender:</label>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" id="femaleRadio" value="Female"> Female
+                                    </label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" id="maleRadio" value="Male"> Male
+                                    </label>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="gender" id="uncknownRadio" value="Unknown"> Unknown
+                                    </label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-form-label">Address:</label>
-                        <input type="text" class="form-control">
-                      </div>
+                        <div class="form-group">
+                            <label class="col-form-label">Address:</label>
+                            <input type="text" class="form-control">
+                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
