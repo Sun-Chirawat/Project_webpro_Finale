@@ -32,8 +32,8 @@
 
     <script>
         $(document).ready(function () {
-            $("btnlogout").click(function(){
-                
+            $("#btnlogout").click(function(){
+                window.location.replace("/");
             });
         });
         
@@ -68,7 +68,7 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" id="btnlogout" href="">logout</a>
+                        <a class="nav-link" id="btnlogout" href="/">logout</a>
                     </li>
                 </ul>
             </div>
