@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const bcrypt = require("bcrypt");
+// const bcrypt = require("bcrypt");
 
 
 
@@ -8,7 +8,7 @@ const bcrypt = require("bcrypt");
 const mysql = require('mysql');
 const config = require('./dbConfig.js');
 const { response } = require("express");
-const database = mysql.createConnection(config);
+const con = mysql.createConnection(config);
 
  
 const app = express();
@@ -47,10 +47,10 @@ app.get("/Listpage", function (req, res) {
 });
 
 app.get("/Notificationpage", function (req, res) {
-    res.sendFile(path.join(__dirname, "views/Notificationpage.html"));
+    res.sendFile(path.join(__dirname, "views/Notification.html"));
 });
 
-app.get("/Paymentapge", function (req, res) {
+app.get("/Paymentpage", function (req, res) {
     res.sendFile(path.join(__dirname, "views/Paymentpage.html"));
 });
 
@@ -62,7 +62,7 @@ app.get("/adminpage", function (req, res) {
     res.sendFile(path.join(__dirname, "views/Adminpage.html"));
 });
 
-app.get("/Formlaunder", function (req, res) {
+app.get("/Formlaunderpage", function (req, res) {
     res.sendFile(path.join(__dirname, "views/Formlaunder.html"));
 });
 
@@ -75,7 +75,7 @@ app.post("/login", function (req, res) {
     const password = req.body.password;
     
     const sql = "SELECT username, role FROM user WHERE USERNAME=? AND PASSWORD=?";
-    con.query(sql, [username, password], function (err, result) {
+    con.query(sql, [username, password], function (err, result, fields) {
         if (err) {
             console.log(err);
             res.status(500).end("Server error");
@@ -89,33 +89,18 @@ app.post("/login", function (req, res) {
             res.status(401).end("Wrong username or password");
         }
         else {
-            if (same) {
-                
-                if (result[0].role == 1) {
-                    res.json({ url : "/admin", user_id});
-                } else {
-                    res.json({ url :"/Chooserlepage"});
-                }           
-            
+            if(result[0].role == 0){
+                res.send("/adminpage")
+            }else{
+            //correct login send destination URL to client
+            // only 1 row -> result[0]
+            res.send("/Chooserolepage");
             }
         }
     });
 });
-// ======= Password gen =======
-app.get("/password/:raw", (req, res) => {
-    const raw = req.params.raw;
-    bcrypt.hash(raw, 10, function(err, hash) {
-        if (err) {
-            console.log(err);
-            res.status(500).send("Hashing password error.");
-            
-        } else {
-            res.send(hash);
-            console.log("Password length: ", hash.length);
-        }
- 
-    });
-});
+
+
 ///=====register========
 app.post("/register",function(req,res){
     const username = req.body.username;
@@ -123,20 +108,10 @@ app.post("/register",function(req,res){
     const phonenumber = req.body.Phonenumber;
     const gender = req.body.gender;
 
-    //encrypt password
-    const saltRounds = 10;    //the cost of encrypting
- 
-    bcrypt.hash(password, saltRounds, function(err, hash  ,fields) {
-        if(err) {
-            console.error(err.message);
-            res.status(500).send("Server error");
-            return;
-        }
-        
-        //hash OK, do the rest here because of async hashing process!
-        // insert new user (role is 2)
+   
+
         const sql = "INSERT INTO user(username, password, , gender , Phone, role) VALUES(?,?,?,?,2)";
-        con.query(sql, [username, hash], function (err, result, fields) {
+        con.query(sql,  function (err, result, fields) {
             if (err) {
                 console.error(err.message);
                 res.status(500).send("Database server error");
@@ -154,7 +129,7 @@ app.post("/register",function(req,res){
             }
         });
     });
-});
+
 
 
 

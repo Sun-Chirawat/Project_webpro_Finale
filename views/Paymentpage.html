@@ -16,15 +16,21 @@
 
     <script>
         $(document).ready(function () {
-            
-
+            $("#btnclick").click(function () { 
+                window.location.replace("/Notificationpage")
+                
+            });
+            $("#btnpayment").click(function () { 
+                window.location.replace("/Notificationpage")
+                
+            });
         });
     </script>
 </head>
 <body>
     <!-- //Back -->
     <div class="container-fluid ml-3 ">
-        <input type="button" class="btn btn-warning text-white" style="margin-top: 40px; padding-top: 12px;" value="Back">
+        <input type="button" class="btn btn-warning text-white" style="margin-top: 40px; padding-top: 12px;" id="btnclick" value="Back">
     </div>
     
     <div class="container mt-2">
