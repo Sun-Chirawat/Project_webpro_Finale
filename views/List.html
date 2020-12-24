@@ -31,7 +31,59 @@
     <link href="styles/stylelist.css" rel="stylesheet">
 
     <script>
+         var form =""; 
 
+$(document).ready(function () {
+   
+    function template(data){
+    let myhtml = '';
+    for(i in data){
+        // myhtml = myhtml + '<p>'+data[i].name+' '+data[i].price+'</p>';
+        // myhtml += `<p>${data[i].name} ${data[i].price} bath</p>`;
+        myhtml += `<div class="container"> 
+        <div class="card text-white">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                            style="width: 100px; height: 100px;" alt="">
+                    </div>
+                    <div class="col-md-3">
+                        <p> The amount of fabric to be deposited <span>${data[i].fabric}</span></p>
+                        <p>Time period<span>${data[i].time}</span></p>
+                    </div>
+                    <div class="col-md-3">
+                        <p>Total laundry price <span>${data[i].sumPrice}</span></p>
+                        <p>Deposit only gender<span>${data[i].onlygender}</span></p>
+                    </div>
+                    <div class="col-md-2">
+                        <p>Separate laundry price<span>${data[i].separatePrice}</span></p>
+                    </div>
+                    <div class="col-md-1 ">
+                        <button class="btn btn-warning btn-lg text-white " style="margin-top: 20px;"
+                            data-toggle="modal" data-target="#DepositId">Deposit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>`;
+}
+return myhtml;
+
+$.ajax({
+type: "GET",
+url: "/form",
+async: false,
+dataType: "dataType",
+success: function (response) {
+    form = [...response];     
+     console.log(form);
+}       
+}); 
+$("#Form").html(template(form));
+
+}         
+});
     </script>
 </head>
 
