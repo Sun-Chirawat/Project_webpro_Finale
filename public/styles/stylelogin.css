@@ -97,7 +97,7 @@ section
 
 }
 
-#login .login_form input[type="submit"]
+#login .login_form input[type="button"]
 {
     color: #fff;
     background:  rgba(230, 168, 76, 0.7);
@@ -105,7 +105,7 @@ section
     transition: .5s;
 }
 
-#login .login_form input[type="submit"]:hover
+#login .login_form input[type="button"]:hover
 {
     background: coral;
     border: 2px solid rgba(230, 168, 76, 0.7);
