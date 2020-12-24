@@ -1,11 +1,13 @@
 const express = require("express");
 const path = require("path");
+const bcrypt = require("bcrypt");
 
 
 
 // ----- Mysql ------
 const mysql = require('mysql');
 const config = require('./dbConfig.js');
+const { response } = require("express");
 const database = mysql.createConnection(config);
 
  
@@ -73,7 +75,7 @@ app.post("/login", function (req, res) {
     const password = req.body.password;
     
     const sql = "SELECT username, role FROM user WHERE USERNAME=? AND PASSWORD=?";
-    con.query(sql, [username, password], function (err, result, fields) {
+    con.query(sql, [username, password], function (err, result) {
         if (err) {
             console.log(err);
             res.status(500).end("Server error");
@@ -92,25 +94,39 @@ app.post("/login", function (req, res) {
                 if (result[0].role == 1) {
                     res.json({ url : "/admin", user_id});
                 } else {
-                    res.json({});
+                    res.json({ url :"/Chooserlepage"});
                 }           
             
             }
         }
     });
 });
-
+// ======= Password gen =======
+app.get("/password/:raw", (req, res) => {
+    const raw = req.params.raw;
+    bcrypt.hash(raw, 10, function(err, hash) {
+        if (err) {
+            console.log(err);
+            res.status(500).send("Hashing password error.");
+            
+        } else {
+            res.send(hash);
+            console.log("Password length: ", hash.length);
+        }
+ 
+    });
+});
 ///=====register========
 app.post("/register",function(req,res){
     const username = req.body.username;
     const password = req.body.password; 
-    const Phonenumber = req.body.Phonenumber;
-    const gender =req.body.gender;
+    const phonenumber = req.body.Phonenumber;
+    const gender = req.body.gender;
 
     //encrypt password
     const saltRounds = 10;    //the cost of encrypting
  
-    bcrypt.hash(password, saltRounds, function(err, hash) {
+    bcrypt.hash(password, saltRounds, function(err, hash  ,fields) {
         if(err) {
             console.error(err.message);
             res.status(500).send("Server error");
@@ -140,21 +156,7 @@ app.post("/register",function(req,res){
     });
 });
 
-// ======= Password gen =======
-app.get("/password/:raw", (req, res) => {
-    const raw = req.params.raw;
-    bcrypt.hash(raw, 10, function(err, hash) {
-        if (err) {
-            console.log(err);
-            res.status(500).send("Hashing password error.");
-            
-        } else {
-            res.send(hash);
-            console.log("Password length: ", hash.length);
-        }
- 
-    });
-});
+
 
 
 

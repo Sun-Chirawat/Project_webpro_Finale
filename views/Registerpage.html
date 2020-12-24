@@ -15,10 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/localization/messages_th.min.js"></script>
     <link href="styles/styleregister.css" rel="stylesheet">
     <script>
-         $(document).ready(function(){
-
-         
-                
+         $(document).ready(function(){               
 
             $("#btnsubmit").click(function(){
                 
@@ -28,10 +25,8 @@
                 var Phonenumber = $("#txtPhoneNumber").val();
                 var gender = $("input[name='gender']:checked").val();
                 
-
-
                 ///----function Check input sing up----
-                if (username == '' || Phonenumber == '' || password == '' || cpassword == '') {
+                if (username == "" || Phonenumber == "" || password == "" || cpassword == "") {
                     alert("Please fill all fields!!!");
                 }else if ((password.length) < 8) {
                     alert("Password should atleast 8 character in length!!");
@@ -42,16 +37,17 @@
                     $.ajax({
                         type: "POST",
                         url: "/register",
-                        data: {username:"username",password:"password",Phonenumber:"Phonenumber",gender:"gender"},
-                        dataType: "dataType",
-                        success: function (response) {
+                        data: {username:"username",password:"password",Phonenumber:"Phonenumber",gender:"gender"},                       
+                    }).done  (function(data){
                             //jump to login
-                        location.replace(response);
-                        }
+                        location.replace("/Loginpage");                      
                     });
                 }
             });
         });
+
+                                    
+                
     </script>
 </head>
 <body>
@@ -71,9 +67,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/loginpage">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Notification</a>
-                    </li>
+                 
                 </ul>
             </div>
 
